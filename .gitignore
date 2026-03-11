@@ -1,10 +1,21 @@
-    node_modules
-.env
-dist
-build
-.DS_Store
-api
+# المكتبات (Dependencies)
 node_modules/
-.env
 frontend/node_modules/
+
+# ملفات البيئة والأسرار (Secrets)
+.env
+api/
+
+# ملفات البناء والإنتاج (Build output)
+dist/
+build/
 frontend/dist/
+frontend/build/
+
+# تقارير التست (Testing coverage)
+coverage/
+frontend/coverage/
+
+# ملفات النظام
+.DS_Store
+Thumbs.db
