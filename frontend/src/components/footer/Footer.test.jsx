@@ -11,8 +11,6 @@ describe("Footer Component", () => {
       </BrowserRouter>
     );
 
-    // نستخدم getAllByText لأن الكلمة قد تظهر في أكثر من مكان
-    // ونستخدم [0] للتأكد من وجود نسخة واحدة على الأقل
     const movieElements = screen.getAllByText(/MOVIE/i);
     const vaultElements = screen.getAllByText(/VAULT/i);
 

@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    container_name: movievault_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-0000}
+      POSTGRES_DB: movievault
+    ports:
+      - "5432:5432"
+    volumes:
+      - movievault_data:/var/lib/postgresql/data
+
+  backend:
+    build: .
+    container_name: movievault_backend
+    ports:
+      - "5001:5001"
+    environment:
+      PORT: 5001
+      PGHOST: db
+      PGUSER: postgres
+      PGPASSWORD: ${DB_PASSWORD:-0000}
+      PGDATABASE: movievault
+      PGPORT: 5432
+      JWT_SECRET: ${JWT_SECRET:-secret_key_123}
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    container_name: movievault_frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: http://localhost:5001/api
+    depends_on:
+      - backend
+
+volumes:
+  movievault_data:

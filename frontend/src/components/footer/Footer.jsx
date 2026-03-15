@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // تأكد من تثبيت react-router-dom
+import { Link } from 'react-router-dom'; 
 import { Facebook, Twitter, Instagram, Github, Crown } from 'lucide-react';
 
 const Footer = () => {
@@ -7,7 +7,6 @@ const Footer = () => {
     <footer className="bg-[#000000] pt-12 pb-6 px-6 border-t border-[#D4AF37]/20 text-white mt-auto">
       <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-start gap-8">
         
-        {/* Brand Section - Slim */}
         <div className="flex-1 min-w-[200px]">
           <Link to="/" className="flex items-center gap-2 mb-3 group">
             <Crown className="text-[#D4AF37] group-hover:scale-110 transition-transform" size={22} />
@@ -20,7 +19,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Navigation - Functional Links */}
         <div className="flex-[2] min-w-[300px] flex justify-around">
           <div className="flex flex-col gap-3">
             <h4 className="text-[#D4AF37] font-black text-[9px] uppercase tracking-[0.3em] mb-1 opacity-60">Navigate</h4>
@@ -40,7 +38,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Socials - Compact */}
         <div className="flex flex-col items-end gap-4">
           <div className="flex gap-3">
             {[Facebook, Instagram, Twitter, Github].map((Icon, index) => (
@@ -56,7 +53,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Copyright - Ultra Slim */}
       <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border-white/[0.03] flex justify-between items-center text-[9px] font-black uppercase tracking-[0.4em] text-slate-700">
         <p>© 2026 MOVIEVAULT</p>
         <p className="text-amber-500/20 italic">Masterpiece Collection</p>

@@ -43,23 +43,19 @@ const Login = () => {
     };
 
     return (
-        // تغليف الصفحة بالكامل بموشن ديف
         <motion.div 
-            initial={{ x: "-100%", opacity: 0 }} // البداية من خارج الشاشة يساراً
-            animate={{ x: 0, opacity: 1 }}      // الدخول للمركز
-            exit={{ x: "-100%", opacity: 0 }}    // الخروج لليسار عند التبديل
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} // حركة ناعمة جداً
+            initial={{ x: "-100%", opacity: 0 }} 
+            animate={{ x: 0, opacity: 1 }}      
+            exit={{ x: "-100%", opacity: 0 }}   
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}    
             className="min-h-screen bg-[#050505] flex items-center justify-center p-6 relative overflow-hidden font-sans"
         >
             
-            {/* 🌌 الخلفية السينمائية */}
             <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#D4AF37]/10 rounded-full blur-[150px] animate-pulse" />
             <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-[#D4AF37]/5 rounded-full blur-[120px]" />
 
-            {/* 🏛️ هيكل البطاقة الرئيسي */}
             <div className="flex w-full max-w-6xl bg-black/40 backdrop-blur-3xl rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] border border-white/5 h-[700px] relative z-10">
                 
-                {/* 📝 قسم النموذج (Left Side) */}
                 <div className="w-full lg:w-[45%] p-10 md:p-16 flex flex-col justify-center relative bg-gradient-to-br from-white/[0.02] to-transparent">
                     
                     <div className="mb-12">
@@ -124,7 +120,6 @@ const Login = () => {
                     </form>
                 </div>
 
-                {/* 🎨 اللوحة الفنية الجانبية (Right Side) */}
                 <div className="hidden lg:flex w-[55%] relative p-16 flex-col justify-between overflow-hidden">
                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-[10s] scale-110 hover:scale-100" 
                          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2070&auto=format&fit=crop)' }} />

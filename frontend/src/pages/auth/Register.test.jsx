@@ -20,16 +20,13 @@ describe("Register Page Component", () => {
       </BrowserRouter>
     );
 
-    // التحقق من اسم المشروع (Movie Vault)
     expect(screen.getByText(/Movie/i)).toBeInTheDocument();
     expect(screen.getByText(/Vault/i)).toBeInTheDocument();
 
-    // التحقق من وجود الحقول باستخدام الـ Placeholder التي وضعتها في كودك
     expect(screen.getByPlaceholderText(/Unique alias/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/Personal address/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/••••••••/i)).toBeInTheDocument();
 
-    // التحقق من زر الإرسال
     expect(screen.getByRole("button", { name: /Finalize Membership/i })).toBeInTheDocument();
   });
 
@@ -42,7 +39,6 @@ describe("Register Page Component", () => {
 
     const usernameInput = screen.getByPlaceholderText(/Unique alias/i);
     
-    // محاكاة كتابة اسم مستخدم
     fireEvent.change(usernameInput, { target: { value: 'king_cinematic' } });
     expect(usernameInput.value).toBe('king_cinematic');
   });
@@ -57,13 +53,10 @@ describe("Register Page Component", () => {
     const passwordInput = screen.getByPlaceholderText(/••••••••/i);
     const toggleButton = screen.getByRole("button", { name: "" }); // زر العين ليس له نص، نختاره عبر الـ tag
 
-    // الحالة الافتراضية: password
     expect(passwordInput.type).toBe("password");
 
-    // الضغط على زر العين
     fireEvent.click(toggleButton);
     
-    // يجب أن يتغير النوع إلى text
     expect(passwordInput.type).toBe("text");
   });
 });

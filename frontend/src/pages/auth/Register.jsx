@@ -32,22 +32,19 @@ const Register = () => {
     };
 
     return (
-        // 🎞️ تغليف الصفحة بموشن ديف للانزلاق من اليمين
         <motion.div 
-            initial={{ x: "100%", opacity: 0 }} // يبدأ من خارج الشاشة يميناً
-            animate={{ x: 0, opacity: 1 }}      // يتحرك للوسط
-            exit={{ x: "100%", opacity: 0 }}    // يخرج لليمين عند المغادرة
+            initial={{ x: "100%", opacity: 0 }}    
+            animate={{ x: 0, opacity: 1 }}       
+            exit={{ x: "100%", opacity: 0 }}    
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="min-h-screen bg-[#050505] flex items-center justify-center p-6 relative overflow-hidden font-sans"
         >
             
-            {/* 🌌 Atmospheric Glows */}
             <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-full blur-[150px]" />
             <div className="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-[#D4AF37]/10 rounded-full blur-[120px] animate-pulse" />
 
             <div className="flex flex-row-reverse w-full max-w-6xl bg-black/40 backdrop-blur-3xl rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] border border-white/5 h-auto min-h-[750px] relative z-10">
                 
-                {/* 📝 Registration Form (Right Side) */}
                 <div className="w-full lg:w-[45%] p-10 md:p-16 flex flex-col justify-center bg-gradient-to-bl from-white/[0.02] to-transparent">
                     
                     <div className="mb-10">
@@ -120,7 +117,6 @@ const Register = () => {
                     </form>
                 </div>
 
-                {/* 🎨 Cinematic Visual Panel (Left Side) */}
                 <div className="hidden lg:flex w-[55%] relative p-16 flex-col justify-between overflow-hidden">
                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-[12s] scale-100 hover:scale-110" 
                          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=2070&auto=format&fit=crop)' }} />

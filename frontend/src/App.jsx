@@ -8,22 +8,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Details from "./pages/Details";
 import Myvault from "./pages/MyVault";
 import Footer from "./components/footer/Footer";
-
-// مكون حماية المسارات
-const ProtectedRoute = ({ children, roleRequired }) => {
-    const token = localStorage.getItem("token");
-    const userRole = localStorage.getItem("role");
-
-    if (!token) {
-        return <Navigate replace to="/login" />;
-    }
-
-    if (roleRequired && userRole !== roleRequired) {
-        return <Navigate replace to="/" />;
-    }
-
-    return children;
-};
+import ProtectedRoute from "./components/ProtectedRoute"; // تأكد من مسار الملف الصحيح لديك
 
 function App() {
     return (
@@ -60,6 +45,7 @@ function App() {
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/movie/:id" element={<Details />} />
+                        <Route path="/archive" element={<Archive />} />
 
                         <Route 
                             path="/myvault" 

@@ -15,7 +15,7 @@ const Myvault = () => {
                 const response = await axiosInstance.get('/myvault'); 
                 setMovies(Array.isArray(response.data) ? response.data : []);
            } catch (err) {
-             console.error("Vault Error:", err); // استدعاء المتغير سيخفي الخط الأحمر
+             console.error("Vault Error:", err);     
              toast.error("Vault sync failed.");
              setMovies([]);
 
@@ -32,7 +32,7 @@ const Myvault = () => {
             setMovies(prev => prev.filter(movie => movie.movie_id !== movieId));
             toast.success('Removed from Vault');
        } catch (err) {
-    console.error("Vault Error:", err); // استخدم المتغير هنا
+    console.error("Vault Error:", err); 
     toast.error('Operation failed');
 }
     };
@@ -47,13 +47,10 @@ const Myvault = () => {
     return (
         <div className="min-h-screen bg-[#050505] text-white font-sans relative selection:bg-[#D4AF37] selection:text-black">
             
-            {/* الخلفية الكربونية الخفيفة */}
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 pointer-events-none" />
 
-            {/* تم زيادة pt-40 لضمان نزول المحتوى أسفل هيدر الموقع تماماً */}
             <main className="max-w-[1600px] mx-auto px-6 md:px-12 pt-40 pb-20 relative z-20">
                 
-                {/* زر الرجوع - أنيق ومستقل */}
                 <div className="mb-12 flex justify-start">
                     <button 
                         onClick={() => navigate(-1)} 
@@ -66,7 +63,6 @@ const Myvault = () => {
                     </button>
                 </div>
 
-                {/* هيدر الصفحة */}
                 <header className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20 pb-12 border-b border-white/5">
                     <div className="space-y-4">
                         <div className="flex items-center gap-2 text-red-600/80 shadow-[0_0_15px_rgba(220,38,38,0.2)]">
@@ -92,25 +88,17 @@ const Myvault = () => {
                     </div>
                 </header>
 
-                {/* قسم التعليقات (إصلاح مشكلة الاقتباسات الفارغة) */}
                 <section className="mb-24">
                     <div className="flex items-center gap-4 mb-10">
                          <h2 className="text-2xl font-black uppercase italic tracking-tighter text-zinc-300">Critiques</h2>
                          <div className="h-[1px] flex-1 bg-gradient-to-r from-zinc-800 to-transparent" />
                     </div>
 
-                    {/* مثال لكيفية معالجة التعليق داخل الكود الخاص بك */}
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                        {/* هنا نضع منطق العرض للتعليق الفردي */}
-                        {/* لو فرضنا أن التعليق قادم كـ comment.text:
-                           {comment.text && comment.text.trim() !== "" ? (
-                               <div className="..."> ... </div>
-                           ) : null} 
-                        */}
+                     
                     </div>
                 </section>
 
-                {/* شبكة الأفلام */}
                 {movies.length === 0 ? (
                     <div className="py-48 text-center bg-zinc-900/10 rounded-[4rem] border border-dashed border-zinc-800/50">
                         <p className="text-zinc-700 uppercase font-black tracking-[0.4em] text-[10px]">Your legacy is currently empty</p>

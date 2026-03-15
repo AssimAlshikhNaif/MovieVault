@@ -4,7 +4,6 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import Myvault from "./Myvault";
 import axiosInstance from "../api/axiosConfig";
 
-// محاكاة axiosInstance
 vi.mock("../api/axiosConfig", () => ({
   default: {
     get: vi.fn(),
@@ -19,7 +18,6 @@ describe("Myvault Page Component", () => {
   });
 
   it("shows loading state initially", () => {
-    // جعل الطلب معلقاً لمحاكاة التحميل
     axiosInstance.get.mockReturnValue(new Promise(() => {}));
     
     render(
@@ -28,7 +26,6 @@ describe("Myvault Page Component", () => {
       </BrowserRouter>
     );
 
-    // التحقق من ظهور نص التحميل الذي في كودك
     expect(screen.getByText(/Accessing Your Vault/i)).toBeInTheDocument();
   });
 
@@ -46,13 +43,11 @@ describe("Myvault Page Component", () => {
       </BrowserRouter>
     );
 
-    // ننتظر حتى يختفي اللودر وتظهر الأفلام
     await waitFor(() => {
       expect(screen.getByText(/THE GODFATHER/i)).toBeInTheDocument();
       expect(screen.getByText(/PULP FICTION/i)).toBeInTheDocument();
     });
 
-    // التأكد من ظهور عدد الأفلام في الـ Counter (02)
     expect(screen.getByText("02")).toBeInTheDocument();
   });
 

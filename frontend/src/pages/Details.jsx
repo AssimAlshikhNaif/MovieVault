@@ -56,12 +56,10 @@ const Details = () => {
                 comment: newReview
             });
 
-            // ✅ الإصلاح الجوهري هنا:
-            // ندمج البيانات العائدة من السيرفر مع بياناتنا لضمان الظهور الفوري
             const reviewToAdd = {
                 ...response.data,
-                comment: response.data.comment || newReview, // التأكد من اسم الحقل
-                username: response.data.username || "You",   // وضع اسم افتراضي إذا لم يعد
+                comment: response.data.comment || newReview,    
+                username: response.data.username || "You",       
                 created_at: response.data.created_at || new Date().toISOString()
             };
 
@@ -91,7 +89,7 @@ const Details = () => {
     return (
         <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-[#D4AF37] selection:text-black">
             
-            {/* Trailer Modal */}
+            
             {showTrailer && trailerUrl && (
                 <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/98 backdrop-blur-3xl p-4">
                     <button 
@@ -106,7 +104,6 @@ const Details = () => {
                 </div>
             )}
 
-            {/* Hero Section */}
             <div className="relative w-full min-h-[90vh] lg:h-screen overflow-hidden flex items-end">
                 <img 
                     src={`${TMDB_IMAGE_URL}${movie.backdrop_path}`} 
@@ -166,7 +163,7 @@ const Details = () => {
                 </div>
             </div>
 
-            {/* Reviews Section */}
+            
             <div className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-12 gap-16">
                 <div className="lg:col-span-4">
                     <div className="bg-[#0a0a0a] p-8 rounded-[2.5rem] border border-white/5 sticky top-32 shadow-xl">

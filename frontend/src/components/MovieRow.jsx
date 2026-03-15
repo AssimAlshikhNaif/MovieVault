@@ -8,7 +8,6 @@ const MovieRow = ({ title, fetchUrl, genreId }) => {
     const [movies, setMovies] = useState([]);
     const rowRef = useRef(null);
 
-    // دالة الألقاب الملكية
     const getRoyalTag = (title) => {
         const t = title.toLowerCase();
         if (t.includes('trending') || t.includes('popular')) return "World Premiere";
@@ -47,7 +46,6 @@ const MovieRow = ({ title, fetchUrl, genreId }) => {
     return (
         <div className="mb-20 relative group px-4 md:px-0">
             
-            {/* Header Section - Clean & Royal */}
             <div className="flex items-end justify-between mb-8 pb-4">
                 <div className="flex items-center gap-4">
                     <div className="relative">
@@ -68,7 +66,7 @@ const MovieRow = ({ title, fetchUrl, genreId }) => {
             </div>
 
             <div className="relative">
-                {/* أزرار التمرير - تظهر عند الحوم فقط */}
+
                 <button 
                     onClick={() => slide('left')}
                     className="absolute -left-4 top-[40%] -translate-y-1/2 z-40 bg-black/80 backdrop-blur-md p-4 rounded-full hidden group-hover:flex items-center justify-center border border-[#D4AF37]/30 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-300 shadow-2xl"
@@ -94,7 +92,6 @@ const MovieRow = ({ title, fetchUrl, genreId }) => {
                     <ChevronRight size={24} strokeWidth={3} />
                 </button>
 
-                {/* تلاشي جانبي ناعم جداً */}
                 <div className="absolute -left-2 top-0 bottom-0 w-20 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none hidden md:block" />
                 <div className="absolute -right-2 top-0 bottom-0 w-20 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none hidden md:block" />
             </div>
